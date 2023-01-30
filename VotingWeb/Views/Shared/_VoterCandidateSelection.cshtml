@@ -1,0 +1,13 @@
+﻿@model VotingWeb.Models.CandidatesVotersViewModel
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-4">
+        @Html.DropDownListFor(m => m.Voters.Id, Model.Voters.VoterItems ,"I am", new { Id = "ddlVoter", @class = "inputSize" })
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4">
+        @Html.DropDownListFor(m => m.Candidates.Id, Model.Candidates.CandidateItems ,"I vote for", new { Id = "ddlCandidate", @class = "inputSize" })
+    </div>
+    <div class="col-1">
+        <button id="newVote" type="submit" disabled>Submit!</button>
+    </div>
+</div>

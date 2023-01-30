@@ -1,0 +1,33 @@
+﻿@model VotingWeb.Models.Voters
+
+<div class="row row-border">
+    <div class="col-10 text-center">Voters</div>
+    <div class="col-2"><button id="newVoter" class="button">+</button></div>
+</div>
+<div id="newVoterForm" class="row row-border" style="display:none">
+    @using (Html.BeginForm("AddVoter", "Home", FormMethod.Post, new { id = "VoterForm"})) 
+    {
+        <div class="col d-inline"><input name="voterName" type="text" required pattern="^[a-zA-Z0-9\s]*$" /></div>
+        <div class="col d-inline"><button id="newVoter">Add</button></div>
+    }
+</div>
+<div class="row row-border">
+    <div class="col">Name</div>
+    <div class="col">Has voted</div>
+</div>
+@foreach(var m in Model.VoterLst)
+{
+    <div class="row row-border">
+        <div class="col">@m.Name</div>
+        <div class="col">
+            @if (@m.HasVoted)
+            {
+                <span>&#10003;</span>
+            }
+            else 
+            { 
+                <span>&#10005;</span> 
+            }
+        </div>
+    </div>
+}

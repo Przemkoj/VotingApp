@@ -1,0 +1,19 @@
+﻿@model VotingWeb.Models.CandidatesVotersViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+ <div>
+     <div class="main-border">
+         @await Html.PartialAsync("_Voters", Model.Voters)
+     </div>
+     <div class="main-border">
+         @await Html.PartialAsync("_Candidates", Model.Candidates)
+     </div>
+ </div>
+
+<hr class="border-top-5"/>
+<h2 class="mb-4 mt-3">Vote!</h2>
+@await Html.PartialAsync("_VoterCandidateSelection", Model)
+
